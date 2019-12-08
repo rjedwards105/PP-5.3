@@ -1,0 +1,106 @@
+import java.util.*;
+public class Dog implements Comparable<Dog>
+{
+    //1) Instance Variables
+    private String name;
+    private String breed;
+    private int age;
+    private double weight;
+
+    static int noOfObjects = 0;
+    {
+        noOfObjects += 1;
+    }
+
+    //2) Constructors
+    public Dog()
+    {
+        name = null;
+        breed = null;
+        age = 0;
+        weight = 0.0;
+    }// end zero-arg or default constructor
+
+    public Dog(String newName, String newBreed)
+    {
+        name = newName;
+        breed = newBreed;
+        age = 0;
+        weight = 0.0;
+    }//end three-arg constructor
+
+
+    public Dog(String newName, String newBreed, int newAge, double newWeight)
+    {
+        name = newName;
+        breed = newBreed;
+        age = newAge;
+        weight = newWeight;
+
+    }//end multi-arg constructor
+
+
+    //4 Getters
+    public String getName()
+    {
+        return name;
+    }
+
+    public String getBreed()
+    {
+        return breed;
+    }
+
+    public int getAge() {return age; }
+
+    public double getWeight() {return weight; }
+
+
+    //5 Setters
+    public void setName(String newName)
+    {
+        name = newName;
+    }
+
+    public void setBreed(String newBreed)
+    {
+        breed = newBreed;
+    }
+
+
+    public void setAge(int newAge)
+    {
+        age = checkLength(newAge);
+    }//end setLength
+
+    //6 Brain Methods
+    private int checkLength(int newAge)
+    {
+        int tempAge = newAge;
+        if (tempAge < 0)
+        {
+            tempAge = 0;
+        }//end if
+        else if (tempAge >1200)
+        {
+            tempAge = 1200;
+        }//end else if
+        return tempAge;
+    }//end length validation method checkLength
+
+    public int compareTo(Dog a){
+        return this.age - a.age;
+    }
+    //3. toString  a must have for every great object class
+    public String toString()
+    {
+        String output = "";
+        output += "Name: " + name;
+        output += "\nBreed: " + breed;
+        output += "\nAge: " + age;
+        output += "\nWeight: " + weight;
+
+        return output;
+    }// end toString
+
+}//end class Song
